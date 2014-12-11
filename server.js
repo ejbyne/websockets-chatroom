@@ -22,6 +22,15 @@ app.get('/', function(request, response) {
   response.render('index');
 });
 
+app.post('/session', function(request, response) {
+  session.user = { name: request.body.name };
+  response.json(session.user);
+});
+
+app.get('/session', function( request, response) {
+  response.send(request.session);
+});
+
 server.listen(3000, function() {
   console.log("listening on port 3000");
 });

@@ -9,25 +9,39 @@ body {
 }
 
 #chat-form {
-  background: #000;
+  background: #fff;
   padding: 3px;
   position: fixed;
   bottom: 0;
   width: 100%;
+  height: 80px;
+  border-top: 1px solid #ccc;
 }
 
 #chat-form input {
   border: 0;
   padding: 10px;
   width: 90%;
+  height: 100%;
   margin-right: .5%;
+  font-size: 1.5em;
 }
 
 #chat-form button {
   width: 9%;
-  background: rgb(130, 224, 255);
+  height: 70%;
+  background: #000;
+}
+
+button {
+  background: #000;
+  color: #fff;
   border: none;
+  border-radius: 10px;
   padding: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.5em;
 }
 
 #messages {
@@ -38,8 +52,20 @@ body {
 
 #messages li {
   padding: 5px 10px;
+  font-size: 1.5em;
 }
 
 #messages li:nth-child(odd) {
   background: #eee;
+}
+
+h1 {
+  width: 100%;
+  background: #000;
+  color: #fff;
+  padding: 20px 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2em;
+  margin-bottom: 20px;
 }
