@@ -22,12 +22,14 @@ $(document).ready(function() {
     clearForm();
 
     $('#chat-form').submit(function() {
-      socket.emit('chat message', {
+      event.preventDefault();
+      var message = {
         user: username,
         text: ' said: ' + $('#message-text').val()
-      });
+      }
+      socket.emit('chat message', message);
       $('#message-text').val('');
-      return false;
+      receiveMessage(message);
     });
 
     socket.on('chat message', function(message, username) {

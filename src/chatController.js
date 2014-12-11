@@ -14,7 +14,7 @@ var socket = function(io, session) {
 
       socket.on('chat message', function(message) {
         console.log(session.user.name + ' posted a message!')
-        io.emit('chat message', message);
+        socket.broadcast.emit('chat message', message);
       });
 
       socket.on('disconnect', function() {
