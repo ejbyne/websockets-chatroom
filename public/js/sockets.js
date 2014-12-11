@@ -1,1 +1,1 @@
-var socket = io(connect('/sockets'));
+var socket = io.connect('/');

@@ -9,6 +9,7 @@
   "author": "Alan Bridger and Ed Byne",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.10.0",
     "ejs": "^1.0.0",
     "express": "^4.10.5",
     "grunt": "^0.4.5",

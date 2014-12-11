@@ -4,6 +4,6 @@ var socket = function(io) {
     console.log('Client connected!');
   });
 
-}
+};
 
 module.exports = socket;

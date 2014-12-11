@@ -4,15 +4,13 @@ var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var socket = require('./src/socketController.js')(io);
 
-app.set('view engine', 'ejs');
-app.set('views', 'views');
-
 app.use(express.static(__dirname + '/public'));
+app.set('view engine', 'ejs');
 
-app.get('/sockets', function(request, response){
+app.get('/socket', function(request, response){
   response.render('socket');
 });
 
-app.listen(3000, function() {
+server.listen(3000, function() {
   console.log("listening on port 3000");
 });
