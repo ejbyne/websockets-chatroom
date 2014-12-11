@@ -1,7 +1,11 @@
 $( document ).ready(function(){
   var socket = io.connect('/');
 
-  $('form').submit(function(){
+  $('#enter-name').submit(function() {
+    // var name = $('#name').val();
+  });
+
+  $('#chat-form').submit(function(){
     socket.emit('chat message', $('#message-text').val());
     $('#message-text').val('');
     return false;

@@ -5,8 +5,14 @@
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
   </head>
   <body>
+
+    <form id="enter-name" action="/" method="post">
+      Please enter your name: <input id="name" type="text">
+      <button>Start chatting!</button>
+    </form>
+
     <ul id="messages"></ul>
-    <form action="">
+    <form id="chat-form" action="#">
       <input id="message-text" type="text" autocomplete="off" />
       <button>Send</button>
     </form>
