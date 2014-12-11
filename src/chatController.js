@@ -15,8 +15,11 @@ var socket = function(io, session) {
     socket.on('username', function(username) {
       session.user = { name: username };
       console.log(session.user)
-      io.emit('welcome user', {message: (username + ' has joined the chatroom')});
-    })
+      io.emit('chat message', {
+        user: username,
+        text: " joined the chatroom"
+      });
+    });
 
   });
 

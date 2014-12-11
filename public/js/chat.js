@@ -9,38 +9,31 @@ $(document).ready(function() {
 
   function receiveMessage(message, username) {
     if(message.user === username) {
-      $('#messages').append($('<li>').text("You said: " + message.text));
+      $('#messages').append($('<li>').text("You" + message.text));
     } else {
-      $('#messages').append($('<li>').text(message.user + " said: " + message.text));
+      $('#messages').append($('<li>').text(message.user + message.text));
     };
   }
 
   $('#enter-name').submit(function() {
     event.preventDefault();
     var username = $('#name').val();
-    // $.post('/session', {name: username}, function(data) {
-    //   console.log(data.name);
-    // });
     socket.emit('username', username);
-    
     clearForm();
 
     $('#chat-form').submit(function() {
       socket.emit('chat message', {
         user: username,
-        text: $('#message-text').val()
+        text: ' said: ' + $('#message-text').val()
       });
       $('#message-text').val('');
       return false;
     });
 
-    socket.on('chat message', function(message) {
-      receiveMessage(message, username);
+    socket.on('chat message', function(message, username) {
+      receiveMessage(message);
     });
 
-    socket.on('welcome user', function(message) {
-      $('#messages').append($('<li>').text(message.message));
-    })
   });
 
 });
