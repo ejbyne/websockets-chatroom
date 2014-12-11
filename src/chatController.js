@@ -1,4 +1,4 @@
-var socket = function(io) {
+var socket = function(io, session) {
 
   io.on('connection', function(socket){
 
@@ -11,6 +11,12 @@ var socket = function(io) {
     socket.on('chat message', function(msg) {
       io.emit('chat message', msg);
     });
+
+    socket.on('username', function(username) {
+      session.user = { name: username };
+      console.log(session.user)
+      io.emit('welcome user', {message: (username + ' has joined the chatroom')});
+    })
 
   });
 

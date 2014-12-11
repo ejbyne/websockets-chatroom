@@ -1,11 +1,12 @@
 $(document).ready(function() {
+
   var socket = io.connect('/');
 
   function clearForm() {
       $('#name').val('');
       $('#enter-name').fadeOut(500);
     };
-    
+
   function receiveMessage(message, username) {
     if(message.user === username) {
       $('#messages').append($('<li>').text("You said: " + message.text));
@@ -17,9 +18,10 @@ $(document).ready(function() {
   $('#enter-name').submit(function() {
     event.preventDefault();
     var username = $('#name').val();
-    $.post('/session', {name: username}, function(data) {
-      console.log(data.name);
-    });
+    // $.post('/session', {name: username}, function(data) {
+    //   console.log(data.name);
+    // });
+    socket.emit('username', username);
     
     clearForm();
 
@@ -35,6 +37,10 @@ $(document).ready(function() {
     socket.on('chat message', function(message) {
       receiveMessage(message, username);
     });
+
+    socket.on('welcome user', function(message) {
+      $('#messages').append($('<li>').text(message.message));
+    })
   });
 
 });
