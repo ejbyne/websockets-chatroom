@@ -1,31 +1,35 @@
 <!doctype html>
 <html>
   <head>
-    <title>Ed and Alan's chatroom</title>
+    <title>Chatterbox</title>
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
   </head>
   <body>
-    <h1>
-      Chatterbox
-    </h1>
-    <form id="enter-name" action="#">
-      Please enter your name: <input id="name" type="text" name="name">
-      <button>Start chatting!</button>
-    </form>
+    <header>
+      <h1>Chatterbox</h1>
+    </header>
     <article>
-      <ul id="messages"></ul>
+      <form id="enter-name" action="#">
+        Please enter your name: <input id="name" type="text" name="name">
+        <button>Start chatting!</button>
+      </form>
+      <!-- <section id="message-box"> -->
+        <ul id="messages"></ul>
+        <!-- </section> --> 
       <ul id="users-present">
         <h3>Users present:</h3>
         <br>
       </ul>
     </article>
+
     <ul id="typing-update"></ul>
     <form id="chat-form" action="#">
       <input id="message-text" type="text" autocomplete="off"/>
       <button>Send</button>
     </form>
     <script src="socket.io/socket.io.js"></script>
-    <script src="js/jquery-2.1.1.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.1.js"></script>
+    <script src='js/jquery-ui.min.js'></script>
     <script src='js/chat.js'></script>
   </body>
 </html>

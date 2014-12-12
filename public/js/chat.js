@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   var socket = io.connect('/');
 
-  function clearForm() {
+  function startChat() {
       $('#name').val('');
       $('#enter-name').fadeOut(500, function() {
         $('#messages').fadeIn();
@@ -17,6 +17,7 @@ $(document).ready(function() {
       $('#messages').append($('<li>').text("You" + message.text));
     } else {
       $('#messages').append($('<li>').text(message.user + message.text));
+      $('#messages').animate({"scrollTop": $('#messages')[0].scrollHeight}, "fast");
     };
   }
 
@@ -24,7 +25,7 @@ $(document).ready(function() {
     event.preventDefault();
     var username = $('#name').val();
     socket.emit('user joined', username);
-    clearForm();
+    startChat();
 
     $('#message-text').on('focus', function() {
       socket.emit('started typing', username);
@@ -51,6 +52,7 @@ $(document).ready(function() {
 
     socket.on('user joined', function(username, currentUsers) {
       $('#messages').append($('<li>').text(username + ' joined the chatroom'));
+      $('#messages').animate({"scrollTop": $('#messages')[0].scrollHeight}, "fast");
       $('#users-present li').remove();
       currentUsers.forEach(function(user) {
         $('#users-present').append($('<li>').text(user));
@@ -59,6 +61,7 @@ $(document).ready(function() {
 
     socket.on('disconnect', function(username, currentUsers) {
       $('#messages').append($('<li>').text(username + ' left the chatroom'));
+      $('#messages').animate({"scrollTop": $('#messages')[0].scrollHeight}, "fast");
       $('#users-present li').remove();
       currentUsers.forEach(function(user) {
         $('#users-present').append($('<li>').text(user));
