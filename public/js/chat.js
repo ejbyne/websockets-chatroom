@@ -69,11 +69,11 @@ $(document).ready(function() {
     });
 
     socket.on('started typing', function(username) {
-      $('#typing-update').append($('<li id=' + username + '-typing>').text(username + ' is typing'));
+      $('#typing-update').text(username + ' is typing');
     });
 
     socket.on('finished typing', function(username) {
-      $(('#' + username + '-typing')).remove();
+      $('#typing-update').empty();
     });
 
   });
