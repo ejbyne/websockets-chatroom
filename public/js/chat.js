@@ -18,7 +18,7 @@ $(document).ready(function() {
   $('#enter-name').submit(function() {
     event.preventDefault();
     var username = $('#name').val();
-    socket.emit('username', username);
+    socket.emit('user joined', username);
     clearForm();
     $('#typing-update').fadeIn();
     $('#chat-form').fadeIn();
@@ -42,6 +42,10 @@ $(document).ready(function() {
       receiveMessage(message);
     });
 
+    // socket.on('user joined', function(username) {
+    //   $('#users-present').append($('<li id=' + username + '-present>').text(username));
+    // });
+
     socket.on('started typing', function(username) {
       $('#typing-update').append($('<li id=' + username + '>').text(username + ' is typing'));
     });
@@ -53,6 +57,10 @@ $(document).ready(function() {
     socket.on('finished typing', function(username) {
       $(('#' + username)).remove();
     });
+
+    // socket.on('disconnect', function(username) {
+    //   $(('#' + username + '-present')).remove();
+    // })
 
   });
 

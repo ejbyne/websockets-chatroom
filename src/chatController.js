@@ -4,13 +4,14 @@ var socket = function(io, session) {
 
     console.log('A user connected!');
 
-    socket.on('username', function(username) {
+    socket.on('user joined', function(username) {
       session.user = { name: username };
       console.log(session.user.name + ' joined the chatroom!');
       io.emit('chat message', {
         user: username,
         text: " joined the chatroom"
       });
+      socket.broadcast.emit('user joined', username);
 
       socket.on('started typing', function(username) {
         console.log(username);
@@ -33,6 +34,7 @@ var socket = function(io, session) {
           user: session.user.name,
           text: " left the chatroom"
         });
+        // socket.broadcast.emit('disconnect', session.user.name);
       });
   
     });
