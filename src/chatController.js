@@ -12,6 +12,16 @@ var socket = function(io, session) {
         text: " joined the chatroom"
       });
 
+      socket.on('started typing', function(username) {
+        console.log(username);
+        socket.broadcast.emit('started typing', username);
+      });
+
+      socket.on('finished typing', function(username) {
+        console.log(username + ' finished typing');
+        socket.broadcast.emit('finished typing', username);
+      });
+
       socket.on('chat message', function(message) {
         console.log(session.user.name + ' posted a message!')
         socket.broadcast.emit('chat message', message);

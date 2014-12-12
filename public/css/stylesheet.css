@@ -8,7 +8,19 @@ body {
   font: 13px Helvetica, Arial;
 }
 
+#typing-update {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  bottom: 60px;
+  padding: 20px;
+  border-top: 1px solid #ccc;
+  list-style-type: none;
+}
+
 #chat-form {
+  display: none;
   background: #fff;
   padding: 3px;
   position: fixed;
@@ -48,6 +60,8 @@ button {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  height: 100%;
+  margin-bottom: 120px;
 }
 
 #messages li {
