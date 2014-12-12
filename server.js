@@ -18,12 +18,14 @@ app.use(session({
   saveUninitialized: true
 }));
 
+console.log(session);
+
 app.get('/', function(request, response) {
   response.render('index');
 });
 
-var port = process.env.PORT || 3000;
+// var port = process.env.PORT || 3000;
 
-server.listen(port, function() {
+server.listen(3000, function() {
   console.log("listening on port 3000");
 });

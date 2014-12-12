@@ -4,7 +4,12 @@ $(document).ready(function() {
 
   function clearForm() {
       $('#name').val('');
-      $('#enter-name').fadeOut(500);
+      $('#enter-name').fadeOut(500, function() {
+        $('#messages').fadeIn();
+        $('#users-present').fadeIn();
+        $('#typing-update').fadeIn();
+        $('#chat-form').fadeIn();        
+      });
     };
 
   function receiveMessage(message, username) {
@@ -20,8 +25,6 @@ $(document).ready(function() {
     var username = $('#name').val();
     socket.emit('user joined', username);
     clearForm();
-    $('#typing-update').fadeIn();
-    $('#chat-form').fadeIn();
 
     $('#message-text').on('focus', function() {
       socket.emit('started typing', username);
@@ -42,25 +45,33 @@ $(document).ready(function() {
       receiveMessage(message);
     });
 
-    // socket.on('user joined', function(username) {
-    //   $('#users-present').append($('<li id=' + username + '-present>').text(username));
-    // });
-
-    socket.on('started typing', function(username) {
-      $('#typing-update').append($('<li id=' + username + '>').text(username + ' is typing'));
-    });
-
     socket.on('chat message', function(message, username) {
       receiveMessage(message);
     });
 
-    socket.on('finished typing', function(username) {
-      $(('#' + username)).remove();
+    socket.on('user joined', function(username, currentUsers) {
+      $('#messages').append($('<li>').text(username + ' joined the chatroom'));
+      $('#users-present li').remove();
+      currentUsers.forEach(function(user) {
+        $('#users-present').append($('<li>').text(user));
+      });
     });
 
-    // socket.on('disconnect', function(username) {
-    //   $(('#' + username + '-present')).remove();
-    // })
+    socket.on('disconnect', function(username, currentUsers) {
+      $('#messages').append($('<li>').text(username + ' left the chatroom'));
+      $('#users-present li').remove();
+      currentUsers.forEach(function(user) {
+        $('#users-present').append($('<li>').text(user));
+      });
+    });
+
+    socket.on('started typing', function(username) {
+      $('#typing-update').append($('<li id=' + username + '-typing>').text(username + ' is typing'));
+    });
+
+    socket.on('finished typing', function(username) {
+      $(('#' + username + '-typing')).remove();
+    });
 
   });
 

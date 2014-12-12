@@ -1,17 +1,18 @@
 var socket = function(io, session) {
 
+  var currentUsers = [];
+
   io.on('connection', function(socket){
 
     console.log('A user connected!');
 
     socket.on('user joined', function(username) {
+
       session.user = { name: username };
+      currentUsers.push(username);
+      console.log(currentUsers);
       console.log(session.user.name + ' joined the chatroom!');
-      io.emit('chat message', {
-        user: username,
-        text: " joined the chatroom"
-      });
-      socket.broadcast.emit('user joined', username);
+      io.emit('user joined', session.user.name, currentUsers);
 
       socket.on('started typing', function(username) {
         console.log(username);
@@ -29,12 +30,11 @@ var socket = function(io, session) {
       });
 
       socket.on('disconnect', function() {
-        console.log(session.user.name + ' left the chatroom!')
-        io.emit('chat message', {
-          user: session.user.name,
-          text: " left the chatroom"
-        });
-        // socket.broadcast.emit('disconnect', session.user.name);
+        var index = currentUsers.indexOf(session.user.name);
+        currentUsers.splice(index, 1);
+        console.log(currentUsers);
+        console.log(session.user.name + ' left the chatroom!');
+        io.emit('disconnect', session.user.name, currentUsers);
       });
   
     });

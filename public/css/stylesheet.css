@@ -4,19 +4,63 @@
   box-sizing: border-box;
 }
 
+h1 {
+  width: 100%;
+  background: #000;
+  color: #fff;
+  padding: 20px 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
 body {
   font: 13px Helvetica, Arial;
 }
 
-#users-present {
-  position: fixed;
-  left: 85%;
-  width: 15%;
+article {
+  /*display: none;*/
   height: 100%;
+  width: 100%;
   margin-bottom: 120px;
+  display: flex;
+}
+
+#messages {
+  /*float: left;*/
+  display: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 20px;
+  height: 100%;
+  /*width: 80%;*/
+  /*margin-right: 20%;*/
+  flex: 4;
+  /*margin-bottom: 120px;*/
+}
+
+#messages li {
+  padding: 5px 10px;
+  font-size: 1.5em;
+}
+
+#messages li:nth-child(odd) {
+  background: #eee;
+}
+
+#users-present {
+  display: none;
+  /*float: right;*/
+  /*position: fixed;*/
+  /*left: 80%;*/
+  /*width: 20%;*/
+  height: 100%;
+  /*margin-bottom: 120px;*/
   padding: 20px;
   border-left: 1px solid #ccc;
   list-style-type: none;
+  flex: 1;
 }
 
 #typing-update {
@@ -28,6 +72,8 @@ body {
   padding: 20px;
   border-top: 1px solid #ccc;
   list-style-type: none;
+  font-style: italic;
+  font-size: 1.5em;
 }
 
 #chat-form {
@@ -65,34 +111,4 @@ button {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1.5em;
-}
-
-#messages {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 85%;
-  margin-right: 15%;
-  margin-bottom: 120px;
-}
-
-#messages li {
-  padding: 5px 10px;
-  font-size: 1.5em;
-}
-
-#messages li:nth-child(odd) {
-  background: #eee;
-}
-
-h1 {
-  width: 100%;
-  background: #000;
-  color: #fff;
-  padding: 20px 10px;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 2em;
-  margin-bottom: 20px;
 }
