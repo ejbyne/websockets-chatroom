@@ -7,7 +7,7 @@
 header {
   height: 15%;
   width: 100%;
-  background: #000;
+  background: #2C3E50;
   color: #fff;
   padding: 20px 10px;
   text-transform: uppercase;
@@ -39,16 +39,27 @@ article {
   list-style-type: none;
   overflow: auto;
   padding-right: 10px;
+  padding-left: 10px;
   padding-bottom: 10px;
 }
 
 #messages li {
   padding: 5px 10px;
   font-size: 2vw;
+  border-radius: 5px;
+  margin-bottom: 5px;
 }
 
-#messages li:nth-child(odd) {
+/*#messages li:nth-child(odd) {
   background: #eee;
+}*/
+
+.own-message {
+  background-color: #3498db;
+}
+
+.other-message {
+  background-color: #ecf0f1;
 }
 
 #users-present {
@@ -100,7 +111,7 @@ article {
 
 button {
   float: right;
-  background: #000;
+  background: #2C3E50;
   color: #fff;
   border: none;
   border-radius: 10px;

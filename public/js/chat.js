@@ -14,11 +14,11 @@ $(document).ready(function() {
 
   function receiveMessage(message, username) {
     if(message.user === username) {
-      $('#messages').append($('<li>').text("You" + message.text));
+      $('#messages').append("<li class=own-message>You" + message.text + "</li>");
     } else {
-      $('#messages').append($('<li>').text(message.user + message.text));
-      $('#messages').animate({"scrollTop": $('#messages')[0].scrollHeight}, "fast");
+      $('#messages').append("<li class=other-message>" + message.user + message.text + "</li>");
     };
+    $('#messages').animate({"scrollTop": $('#messages')[0].scrollHeight}, "fast");
   }
 
   $('#enter-name').submit(function() {
@@ -43,11 +43,11 @@ $(document).ready(function() {
       }
       socket.emit('chat message', message);
       $('#message-text').val('');
-      receiveMessage(message);
+      receiveMessage(message, username);
     });
 
     socket.on('chat message', function(message, username) {
-      receiveMessage(message);
+      receiveMessage(message, username);
     });
 
     socket.on('user joined', function(username, currentUsers) {
