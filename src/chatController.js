@@ -10,12 +10,11 @@ var socket = function(io, session) {
 
       session.user = { name: username };
       currentUsers.push(username);
-      console.log(currentUsers);
       console.log(session.user.name + ' joined the chatroom!');
       io.emit('user joined', session.user.name, currentUsers);
 
       socket.on('started typing', function(username) {
-        console.log(username);
+        console.log(username + ' started typing');
         socket.broadcast.emit('started typing', username);
       });
 
@@ -32,7 +31,6 @@ var socket = function(io, session) {
       socket.on('disconnect', function() {
         var index = currentUsers.indexOf(session.user.name);
         currentUsers.splice(index, 1);
-        console.log(currentUsers);
         console.log(session.user.name + ' left the chatroom!');
         io.emit('disconnect', session.user.name, currentUsers);
       });

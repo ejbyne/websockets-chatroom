@@ -18,8 +18,6 @@ app.use(session({
   saveUninitialized: true
 }));
 
-console.log(session);
-
 app.get('/', function(request, response) {
   response.render('index');
 });

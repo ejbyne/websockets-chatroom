@@ -4,10 +4,13 @@
     <title>Chatterbox</title>
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
   </head>
+
   <body>
+
     <header>
       <h1>Chatterbox</h1>
     </header>
+
     <article>
       <form id="enter-name" action="#">
         Please enter your name: <input id="name" type="text" name="name">
@@ -15,18 +18,20 @@
       </form>
         <ul id="messages"></ul>
       <ul id="users-present">
-        <h3>Users present:</h3>
+        <p>Users present:</p>
         <br>
       </ul>
     </article>
 
     <ul id="typing-update"></ul>
+
     <form id="chat-form" action="#">
       <input id="message-text" type="text" autocomplete="off"/>
       <button>Send</button>
     </form>
-    <script src="socket.io/socket.io.js"></script>
-    <script src="js/jquery-2.1.1.min.js"></script>
+
+    <script src='socket.io/socket.io.js'></script>
+    <script src='js/jquery-2.1.1.min.js'></script>
     <script src='js/jquery-ui.min.js'></script>
     <script src='js/chat.js'></script>
   </body>

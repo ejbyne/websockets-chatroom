@@ -9,56 +9,55 @@ header {
   width: 100%;
   background: #2C3E50;
   color: #fff;
-  padding: 20px;
+  padding-top: 2%;
+  padding-bottom: 5%;
+  padding-left: 2%;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 2vw;
-  margin: 0;
-  margin-bottom: 10px;
+  margin-bottom: 1%;
   vertical-align: text-middle;
 }
 
 html, body {
-  font: 13px Helvetica, Arial;
+  font: 1.5vw Helvetica, Arial;
+  font-size: 1.5vw;
   height: 100%;
 }
 
 article {
-  margin-bottom: 20%;
-  height: 70%;
+  margin-bottom: 16%;
+  padding-bottom: 1%;
+  height: 72%;
   width: 100%;
   margin: 0;
   display: flex;
 }
 
 #enter-name {
-  width: 52%;
-  height: 10%;
-  vertical-align: text-middle;
+  width: 100%;
+  margin: 1%;
 }
 
 #enter-name input {
-  margin-top: 5px;
-  margin-right: 5px;
+  margin-right: 1%;
 }
 
 #messages { 
-  margin: 0;
+  margin-bottom: 1%;
   display: none;
   border-right: 1px solid #ccc;
   flex: 4;
   list-style-type: none;
   overflow: auto;
-  padding-right: 10px;
-  padding-left: 10px;
-  padding-bottom: 10px;
+  padding-right: 1%;
+  padding-left: 1%;
 }
 
 #messages li {
-  padding: 5px 10px;
-  font-size: 1.5vw;
+  padding: 1% 2%;
   border-radius: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 1%;
 }
 
 .own-message {
@@ -71,64 +70,61 @@ article {
 
 #users-present {
   display: none;
-  padding: 20px;
+  padding: 1%;
   list-style-type: none;
   flex: 1;
+}
+
+#users-present p {
+  font-weight: bold;
 }
 
 #typing-update {
   display: none;
   background: #fff;
-  padding: 15px;
+  padding: 1%;
   position: fixed;
   width: 100%;
-  height: 7%;
-  border-top: 1px solid #ccc;
+  height: 3%;
   list-style-type: none;
   font-style: italic;
-  font-size: 1.5vw;
   font-color: black;
-  bottom: 10%;
+  bottom: 13%;
+  border-top: 1px solid #ccc;
 }
 
 #chat-form {
   display: none;
   background: #fff;
-  padding: 10px;
+  padding: 1%;
   position: fixed;
   bottom: 0;
   width: 100%;  
   height: 10%;
-  border-top: 1px solid #ccc;
-  margin-top: 5px;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 
 #chat-form input {
-  border: 0;
-  padding: 10px;
   width: 87%;
   height: 100%;
-  margin-right: .5%;
-  font-size: 1.5vw;
+  margin-right: 1%;
+  padding: 1%;
 }
 
 #chat-form button {
-  width: 9%;
-  height: 100%;
+  width: 10%;
   background: #2C3E50;
 }
 
 button {
-  float: right;
   background: #2C3E50;
+  cursor: pointer;
   color: #fff;
   border: none;
   border-radius: 10px;
-  padding: 10px;
-  /*padding-bottom: 20px;*/
+  padding: 2%;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 1.5vw;
-  /*margin: 5px;*/
   vertical-align: text-middle;
 }
