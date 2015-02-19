@@ -1,3 +1,6 @@
+[![Code Climate](https://codeclimate.com/github/ejbyne/websockets-chatroom/badges/gpa.svg)](https://codeclimate.com/github/ejbyne/websockets-chatroom)
+[![Test Coverage](https://codeclimate.com/github/ejbyne/websockets-chatroom/badges/coverage.svg)](https://codeclimate.com/github/ejbyne/websockets-chatroom)
+
 # Chat Server (Node.js and Socket.io)
 
 ## Summary
