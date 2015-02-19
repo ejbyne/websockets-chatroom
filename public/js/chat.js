@@ -28,11 +28,11 @@ $(document).ready(function() {
     startChat();
 
     $('#message-text').on('focus', function() {
-      socket.emit('started typing', username);
+      socket.emit('started typing');
     });
 
     $('#message-text').on('blur', function() {
-      socket.emit('finished typing', username);
+      socket.emit('finished typing');
     });
 
     $('#chat-form').submit(function() {
