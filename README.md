@@ -14,6 +14,7 @@ Our project was to build a real-time chat server for multiple users, which I wor
 - Provides notification when a user enters or leaves the chatroom
 - Provides notification when another user is typing
 - Messages scroll upwards when they reach the bottom of the chat window
+- Different colours to distinguish user's messages from others'
 
 The live version of the website can be accessed [here](https://chatterbox-chat-server.herokuapp.com/).
 
